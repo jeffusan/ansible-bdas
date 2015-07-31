@@ -20,4 +20,8 @@
 - name: install vim-scala module
   git: repo=https://github.com/derekwyatt/vim-scala.git dest={{ goodies_home }}/.vim/bundle/vim-scala
 
+- name: install a better editor
+  apt: name=emacs24-nox state=present
 
+- name: install emacs config
+  git: repo=https://github.com/jeffusan/evil-twin.git dest={{ goodies_home }}/.emacs
