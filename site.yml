@@ -113,6 +113,8 @@
   roles:
     - { role: spark_standalone, when: install_spark }
   any_errors_fatal: yes
+  tags:
+    - spark
 
 - name: install Mesos
   hosts: all
