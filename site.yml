@@ -7,6 +7,14 @@
     - common
   any_errors_fatal: yes
 
+- name: add oracle java
+  hosts: all
+  roles:
+    - java
+  any_errors_fatal: yes
+  tags:
+    - java
+
 - name: set up master host for convenience
   hosts: master
   roles:
