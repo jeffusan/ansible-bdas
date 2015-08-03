@@ -1,6 +1,9 @@
 ansible-bdas
 ============
 
+### TODO
+- Remove current java submodule, add one for Oracle JDK 8
+
 ### Description
 
 This is a set of Ansible recipes for Berkeley Data Analytics Stack (and some other software) deployment on a cluster.
