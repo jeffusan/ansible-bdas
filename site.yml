@@ -87,6 +87,8 @@
   roles:
     - { role: scala, when: install_spark }
   any_errors_fatal: yes
+  tags:
+    - scala
 
 - name: setup HDFS namenode
   hosts: master
