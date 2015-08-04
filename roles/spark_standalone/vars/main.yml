@@ -11,12 +11,12 @@ spark_master_port: 7077
 
 # memory per executor, increase if see java out-of-memory exceptions in spark shell
 # spark_executor_memory: "{{ (ansible_memtotal_mb * 0.6)|round|int }}m"
-spark_executor_memory: 1gb
+spark_executor_memory: 2gb
 
 # total memory for use by all apps
 # make sure to leave at least 1gb for the system on slaves
 # TODO set this value depending on total cluster memory
-spark_worker_memory: 3gb
+spark_worker_memory: 512mb
 
 # only for spark 0.9.x
 # spark_mem: 14g 
