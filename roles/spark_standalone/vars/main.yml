@@ -2,7 +2,8 @@
 #spark_version: "0.9.2-bin-hadoop2"
 #spark_version: "1.2.0-bin-hadoop2.4"
 spark_version: "1.4.1-bin-hadoop2.6"
-spark_download_url: "http://d3kbcqa49mib13.cloudfront.net/spark-{{ spark_version }}.tgz"
+spark_download_url: "http://ftp.meisei-u.ac.jp/mirror/apache/dist/spark/spark-1.4.1/spark-{{ spark_version }}.tgz"
+#spark_download_url: "http://d3kbcqa49mib13.cloudfront.net/spark-{{ spark_version }}.tgz"
 
 spark_root: "/opt/spark"
 spark_master_host: "{{ master_hostname }}"
