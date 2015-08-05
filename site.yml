@@ -116,68 +116,13 @@
   tags:
     - spark
 
-- name: install Mesos
-  hosts: all
-  vars_files:
-    - group_vars/components.yml
-  roles:
-    - { role: mesos, when: install_mesos }
-  any_errors_fatal: yes
-
-- name: deploy Spark on Mesos
+- name: copy data
   hosts: master
   vars_files:
     - group_vars/components.yml
   roles:
-    - { role: spark_mesos, when: install_mesos and install_spark }
+    - { role: mirai_master }
   any_errors_fatal: yes
+    
 
-- name: install mysql on Hive master
-  hosts: master
-  vars_files:
-    - group_vars/components.yml
-  roles:
-    - { role: mysql_server, when: install_hive }
-  any_errors_fatal: yes
-
-- name: install Hive
-  hosts: master
-  vars_files:
-    - group_vars/components.yml
-  roles:
-    - { role: hive, when: install_hive }
-  any_errors_fatal: yes
-
-- name: deploy Tachyon
-  hosts: all
-  vars_files:
-    - group_vars/components.yml
-  roles:
-    - { role: tachyon, when: install_tachyon }
-  any_errors_fatal: yes
-
-- name: setup YARN resourcemanager
-  hosts: master
-  vars_files:
-    - group_vars/components.yml
-  roles:
-    - { role: yarn_resourcemanager, when: install_mapred }
-  any_errors_fatal: yes
-
-- name: setup YARN nodemanagers
-  hosts: workers
-  vars_files:
-    - group_vars/components.yml
-  roles:
-    - { role: yarn_nodemanager, when: install_mapred }
-  any_errors_fatal: yes
-
-- name: install Cassandra
-  hosts: all
-  vars_files:
-    - group_vars/components.yml
-  roles:
-    - { role: cassandra, when: install_cassandra }
-
-#- include: tests/integration-tests.yml
 
