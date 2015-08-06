@@ -2,14 +2,18 @@
 - include_vars: roles/hadoop_common/vars/main.yml
   tags:
     - install
-
-- name: Put Mirai data from /sparkapps/src/test/resources to HDFS
+    - copy_to_hdfs
+    
+- name: Put Mirai data from /sparkapps/ibm1/src/test/resources to HDFS
   shell: >
-    su - {{ hdfsuser }} -c "hadoop fs -put -f /{{ mirai_container }}/en-ja-int-train.snt /test/data/";
+    su - {{ hdfsuser }} -c "hadoop fs -mkdir -p /test/data";
+    su - {{ hdfsuser }} -c "hadoop fs -put -f {{ mirai_container }}/en-ja-int-train.snt /test/data/";
   # ignore errors if already exists
   ignore_errors: true
   tags:
     - configure
+    - copy_to_hdfs
+    
 
 # The following are commented out because they could be useful later    
 
